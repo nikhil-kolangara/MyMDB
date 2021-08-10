@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+    <title>User Login!</title>
+</head>
+
+<body>
+    <h1>Login here!</h1>
+    <form method="POST">
+        {% csrf_token %}
+    <table border = "1">
+        <tr>
+            <td>User Name</td>
+            <td><input type="text" placeholder="Enter the Username" name="username" required></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" placeholder="Enter your password" name="password" required></td>
+        </tr>
+    </table>
+    <hr/>
+    <p>Don't have an account? Create one <a href="/register">here</a></p>
+    <input type="submit" value="Log In">
+    {% if messages %}
+    {% for result in messages %}
+    <b style="color: green">{{result}}</b>
+    {% endfor %}
+    {% endif %}
+    </form>
+</body>
